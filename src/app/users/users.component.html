@@ -1,0 +1,49 @@
+<br>
+
+<h5 style=" margin-left: 800px; ">
+    Users : All
+</h5>
+
+<hr>
+<table class="table table-hover">
+    <thead>
+      <tr>
+      	<th>S.No</th>
+      	<th>UserId</th>
+        <th>CreatedAt</th>
+        <th>PhoneNo.</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of usersData | paginate: { itemsPerPage:10, currentPage: p } ;let i=index">
+      	<td>{{(p-1)*10+i+1}}</td>
+        <td *ngIf="user._id ; else  elseBlock">{{ user._id}}</td>
+        <ng-template #elseBlock>
+        <td>Not Available</td>
+        </ng-template>
+        <td>{{ user.createdAt }}</td>
+        <td>
+             <a routerLink="/users/{{user.mobile}}" class="text-info">{{ user.mobile}}</a>
+        </td>
+      </tr>
+    </tbody>
+</table>
+
+
+<div style="margin-left: auto ; margin-right: auto; text-align: center;" >
+      <pagination-controls (pageChange)="p =$event" class="my-pagination">
+      </pagination-controls>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

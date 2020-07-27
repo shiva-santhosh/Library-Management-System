@@ -1,0 +1,67 @@
+<nav class="navbar navbar-expand-sm bg-info navbar-dark" 
+        style="border: 2px solid #bad3fc ;   border-radius: 25px ;width :99%; margin-left: 0.5%">
+
+        <a class="navbar-brand" >
+              <font color="#eff1f4">FilterBox</font>
+        </a>
+        <button class="navbar-toggler" type="button" 
+                data-toggle="collapse" data-target="#navbarSupportedContent1">
+                <span class="navbar-toggler-icon"></span>
+        </button>
+		   <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+            <ul class="navbar-nav" class="navbar-nav mx-auto">
+
+				          <li class="nav-item dropdown">
+      		  		      <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" 
+                      aria-expanded="false">
+          			       Event-Type
+        			        </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown" >
+                          <div *ngFor="let user of arr">
+                          <a class="dropdown-item" routerLink="/events/{{user}}" (click)="Select(user)" >
+                                    {{ user }}
+                                </a>
+                          </div>
+                      </div>
+        		      </li>
+                <!---<button class="btn btn-warning" type="submit">{{ selectedone }}</button> --->
+
+                 <!--<li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle active"
+                            id="navbarDropdown" role="button" data-toggle="dropdown" 
+                            aria-haspopup="true" aria-expanded="false">
+                      Event-SubType
+                      </a>
+
+                       <div class="dropdown-menu" aria-labelledby="navbarDropdown" >
+                          <div *ngFor="let user of arr1">
+                          <a class="dropdown-item" routerLink="/events/{{user}}" (click)="Select(user)" >
+                                    {{ user }}
+                                </a>
+                          </div>
+                      </div>
+                  </li>  --->   
+
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle active" href="#" 
+                      id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Event-Status
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown" >
+                          <a class="dropdown-item" href="/events/eventStatus/success">Success</a>
+                          <a class="dropdown-item" href="/events/eventStatus/failure">Failure</a>
+                      </div>
+                  </li>
+
+			     </ul> 
+
+			     <form class="form-inline" (ngSubmit)="submit1()"  ngNativeValidate>
+				          <label class="navbar-brand"> Date :</label>
+                  <input [(ngModel)]="date1" #date="ngModel" id="date" name="date" class="form-control mr-sm-2" type="search" 
+                  placeholder="Caterogised" aria-label="Search" placeholder="YYYY-MM-DD">
+				          <button class="btn btn-warning" type="submit">
+                  Filter
+                </button>
+			     </form>
+      </div>
+</nav>

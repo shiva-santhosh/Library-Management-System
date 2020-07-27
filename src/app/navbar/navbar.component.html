@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+	<a class="navbar-brand" href="https://www.rupeek.com/" target="_blank">
+		<img src="https://media.licdn.com/dms/image/C510BAQFtN35K0Lulgg/company-logo_200_200/0?e=2159024400&v=beta&t=lgd-DhAMjYtI_7KNAkgT81yXP0gKNEIgYrU05vQBTus" 
+	    class="d-inline-block align-top"  width="30"  height="30" alt="x">
+		rupeek
+	</a>
+
+	<button class="navbar-toggler" type="button"
+		 data-toggle="collapse" data-target="#navbarSupportedContent">
+					<span class="navbar-toggler-icon"></span>
+	</button>
+
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+			<ul class="navbar-nav mx-auto">
+
+					<li class="nav-item active">
+							<a  routerLink="/events" class="nav-link">
+							Events
+							</a>
+					</li>
+
+					<li class="nav-item active">
+							<a  routerLink="/users" class="nav-link">
+							Users
+							</a>
+					</li>
+
+			</ul>
+
+			<form class="form-inline"  (ngSubmit)="submit()"  ngNativeValidate>
+					<label class="navbar-brand" for="tel">
+					 Phone :
+					</label>
+ 					<input  [(ngModel)]="phoneNum" #phone="ngModel" type="tel" 
+ 					id="phone" name="phone"  class="form-control mr-sm-2"  placeholder="9999999999" 
+ 					pattern="^[6-9]\d{9}$" required/>
+ 					<button type="submit" class="btn btn-outline-success my-2 my-sm-0">  
+ 					Search 
+ 					</button>
+			</form>
+	</div>
+	
+</nav>

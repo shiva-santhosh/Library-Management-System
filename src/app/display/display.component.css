@@ -1,0 +1,6 @@
+  .my-pagination /deep/ .ngx-pagination .current {
+    margin-left: auto !important;
+    margin-right: auto !important ;
+    text-align: center !important;
+  }
+ 

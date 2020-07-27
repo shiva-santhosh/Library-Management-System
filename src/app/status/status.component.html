@@ -1,0 +1,42 @@
+<<br>
+<h5 style=" margin-left: 800px; ">
+  EventStatus : {{ status |  uppercase }}
+</h5>
+<hr>
+
+<table class="table table-hover">
+    <thead>
+      <tr>
+      	<th>S.No</th>
+        <th>EventId</th>
+        <th>UserId</th>
+        <th>CreatedAt</th>
+        <th>Event-Type</th>
+        <th>Event-Sub-Type</th>
+        <th>Events-Meta-Data</th>
+      </tr>
+    </thead>
+    
+    <tbody>
+      <tr *ngFor="let user of userData| paginate: { itemsPerPage:10, currentPage: p } ;index as i">
+        <td>{{(p-1)*10+i+1}}</td>
+        <td> 
+          <a href="/api/events/{{user._id}}" class="text-info" target="_blank">
+              {{user._id}}
+            </a>
+        </td>
+        <td *ngIf="user.userid ; else  elseBlock">{{ user.userid}}</td>
+        <ng-template #elseBlock>
+          <td>Not Available</td>
+        </ng-template>
+        <td>{{ user.createdAt }}</td>
+        <td>{{ user.EventType}}</td>
+        <td>{{ user.EventSubType}}</td>
+        <td>{{ user.EventsMetaData}}</td>
+       </tr>
+    </tbody>
+ </table>
+ <div style="margin-left: auto ; margin-right: auto; text-align: center;" >
+      <pagination-controls (pageChange)="p =$event" class="my-pagination">
+      </pagination-controls>
+</div>
